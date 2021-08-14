@@ -1,15 +1,15 @@
 from fastapi.testclient import TestClient
 
-from Main.main import app
+from main import app
 
 client = TestClient(app)
 
-def test_read_main():
+def test_read_root():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"msg": "Hello, World!"}
+    assert response.json() == {"msg": "This is root!"}
 
-def test_read_main2():
+def test_read_hello():
     response = client.get("/hello")
     assert response.status_code == 200
-    assert response.json() == {"Hello": "World!"} 
+    assert response.json() == {"msg": "Hello, World!"}
