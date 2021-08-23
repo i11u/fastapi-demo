@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_USER: "demo0813"
+      MYSQL_PASSWORD: "fastapi_demo"
+      MYSQL_DATABASE: "fastapi_demo"
+      MYSQL_ROOT_PASSWORD: "fastapi_demo"
+    networks:
+      - local-net
+
+  api:
+    image: fastapi-demo
+    container_name: fastapi-demo
+    restart: always
+    ports:
+      - 8000:8000
+    networks:
+      - local-net
+
+networks:
+  local-net:
+    driver: bridge

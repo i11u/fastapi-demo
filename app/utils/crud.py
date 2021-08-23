@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from Models.schemas import *
+from models.schemas import *
 
-from Models.models import User, Item
+from models.models import User, Item
 
 
 
